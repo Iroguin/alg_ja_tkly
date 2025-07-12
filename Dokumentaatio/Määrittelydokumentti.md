@@ -1,5 +1,5 @@
 # 2048 Peli - Määrittelydokumentti
-### Perustiedot
+## Perustiedot
 Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti (TKT)
 Dokumentaatio Kieli: Suomi
 Ohjelmointikieli: Python

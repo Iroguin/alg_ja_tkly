@@ -15,7 +15,7 @@ Laajatasoista suunitelmaa tehty dokumentaation mukana.
 En Paljon. Dokumentaation kirjoittaminen on tylsin osa projektia :p
 
 4. Mikä jäi epäselväksi tai tuottanut vaikeuksia?
-Ei mitään tällä viikolla 
+määrittelydokumentin ja toteutusdokumenttien ero.
 
 5. Seuraavan viikon tavoitteet (ja muidenkin tulevien viikojen):
 
