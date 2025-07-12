@@ -10,6 +10,13 @@ Ongelman kuvaus: 2048 on peli, jossa pelaaja liikuttaa numerolaattoja 4x4-ruuduk
 Tavoitteena on yhdistää samanarvoiset numerot suuremmiksi ja päästä 2048-laattaan. 
 Peli päättyy, kun ruudukko täyttyy eikä liikkeitä ole enää mahdollista tehdä.
 
+## Harjoitustyön ydin
+Projektin ydin on tekoälyalgoritmin toteutus ja optimointi, ei 2048-pelin käyttöliitymän ohjelmointi. 
+Vaikka toimiva käyttöliittymä tarvitaan tekoälyn testaamiseen, se on vain tukikomponentti. 
+Aiheen ydin koostuu algoritmejen implementoinnista.
+Suurin osa kehitysajasta kuluisi algoritmin hienosäätöön ja erilaisten heuristiikkayhdistelmien kokeiluun. 
+Pelin toteutus pidetään mahdollisimman yksinkertaisena, jotta fokus pysyy tekoälyssä.
+
 ### Ratkaistavat haasteet:
 Pelin logiikan toteutus (liikkeet, yhdistämiset, uusien laattojen generointi)
 Tekoälyn kehittäminen joka pelaa peliä optimaalisesti
