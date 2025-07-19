@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Peliä ei ole olemassa...
+Peli on olemassa...
 
 
 

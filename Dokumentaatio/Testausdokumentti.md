@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Peliä eikä testejä ole olemassa...
+Peli on olemassa...
 
 
 
