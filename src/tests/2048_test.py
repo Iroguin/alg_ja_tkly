@@ -1,7 +1,7 @@
 import pytest
 import random
 from unittest.mock import patch
-from Game import Game2048, UP, DOWN, LEFT, RIGHT
+from game import Game2048, UP, DOWN, LEFT, RIGHT
 
 
 class TestGame2048Initialization:

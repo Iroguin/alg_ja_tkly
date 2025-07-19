@@ -30,6 +30,7 @@ Parempi käyttöliittymä käyttäen flageja
 Dokumentaation parantaminen diagrammeilla jotta näkee mikä puhuu mille
 Käytettävä käyttöohje
 Readme täytetty hyödyllisellä infolla
+implementoi tasks helpompaa kehitystä varten
 
 
 6. Tämän viikon tavoitteet

@@ -1,5 +1,6 @@
 
 def expectiminimax(node, depth):
+    pass
 
 
 # function 
