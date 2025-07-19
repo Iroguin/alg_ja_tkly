@@ -144,6 +144,5 @@ def main():
     game.print_board()
     print("Game over!")
 
-# Test Functionality
 if __name__ == "__main__":
     main()
