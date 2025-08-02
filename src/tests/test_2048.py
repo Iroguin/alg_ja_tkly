@@ -1,8 +1,8 @@
 """Tests for core game logic"""
 
-import pytest
 import random
 from unittest.mock import patch
+import pytest
 from game import Game2048, UP, DOWN, LEFT, RIGHT
 
 
@@ -23,7 +23,6 @@ class TestGame2048Initialization:
     def test_initialization_adds_two_tiles(self, mock_random, mock_choice):
         """Test that initialization adds exactly two tiles"""
         # Mock the tile placement and values
-        # Place tiles at specific positions
         mock_choice.side_effect = [(0, 0), (1, 1)]
         # First tile gets 2, second gets 4
         mock_random.side_effect = [0.5, 0.95]
@@ -73,7 +72,7 @@ class TestRandomTileAddition:
         """Test that no tile is added when board is full"""
         game = Game2048()
         # Fill the board completely
-        game.board = [[2] * 4 for _ in range(4)]
+        game.board = [[2] * 4 for i in range(4)]
 
         original_board = [row[:] for row in game.board]
         game.add_random_tile()

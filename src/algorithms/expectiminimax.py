@@ -44,7 +44,8 @@ def expectiminimax(game, depth, is_player_turn=True):
                     temp_game.board = [temp_game.combine_row(
                         row[::-1])[::-1] for row in temp_game.board]
                 elif direction == UP:
-                    temp_game.board = [[temp_game.combine_row([temp_game.board[i][j] for i in range(4)])[
+                    temp_game.board = [[temp_game.combine_row([temp_game.board[i][j] for i in range(
+                        4)])[
                         i] for j in range(4)] for i in range(4)]
                 elif direction == DOWN:
                     temp_game.board = [[temp_game.combine_row([temp_game.board[i][j] for i in range(

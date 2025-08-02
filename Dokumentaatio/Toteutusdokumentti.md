@@ -2,9 +2,9 @@
 
 ## Ydinmoduulit:
 game.py - Pelin peruslogiikka ja säännöt
-ai.py - Expectimax-algoritmi ja heuristiikat
+play_game.py - Määrittää algorytmin ja depthin ja pelaa pelaa pelin
+expectiminimax.py - Pääalgorytmi pelin pelaamista varten
 evaluation.py - Pelitilan arviointi ja heuristiikkafunktiot
-interface.py - Käyttöliittymä testausta varten
 
 ## Testaus ja mittaus:
 Automaattinen pelitestaus eri parametreilla
@@ -15,8 +15,10 @@ Suorituskykytestit eri hakusyvyyksillä
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
 
-## Laajojen kielimallien (ChatGPT yms.) käyttö
-käytin kielimallia laatimaan esimerkin määrittelydokumntista jota käytin tekemään omani
 
-## Lähteet
+## Laajojen kielimallien (ChatGPT yms.) käyttö
+Claude on ainoa kielimalli jota olen käyttänyt.
+Käytetty:
+    - Käytin sitä projektin alussa jonkun dokumenttien laatimista varten
+    - Käytin laatiessani testejä esim miten mock toimii ja miten pystyisin testaamaan satunnasta logiikkaa
 

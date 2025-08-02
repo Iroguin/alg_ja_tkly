@@ -1,17 +1,24 @@
 # Testausdokumentti
 
-Peli on olemassa...
+Raportin voi saada komennolla
+```
+poetry run invoke coverage
+```
 
-
-
-Testausdokumentin pitääs sisältää seuraavat:
-
-Yksikkötestauksen kattavuusraportti.
 Mitä on testattu, miten tämä tehtiin?
+Testatut tiedostot:
+    - game.py
+    - evaluation.py
+    - play_game.py
+        - huono coverage score johtuu siitä että sys argumentteja ei testata
+    - expecitminimax.py
+    - depth_one_move.py
+
+Tiedostot viellä testaamatta:
+    - none
+
 Minkälaisilla syötteillä testaus tehtiin?
+    - testaus tapahtuu suurimmaksi osaksi eri lauta tilanteilla esim tyhjä lauta
+
 Miten testit voidaan toistaa?
-Ohjelman toiminnan mahdollisen empiirisen testauksen tulosten esittäminen graafisessa muodossa. (Mikäli sopii aiheeseen)
-Ei siis riitä todeta, että testaus on tehty käyttäen automaattisia yksikkötestejä, vaan tarvitaan konkreettista tietoa testeistä, kuten:
-Testattu, että tekoäly osaa tehdä oikeat siirrot tilanteessa, jossa on varma 4 siirron voitto. Todettu, että siirroille palautuu voittoarvo 100000.
-Testattu 10 kertaan satunnaisesti valituilla lähtö- ja maalipisteillä, että JPS löytää saman pituisen reitin kuin Dijkstran algoritmi.
-Kummallakin algoritmilla on pakattu 8 MB tekstitiedosto, purettu se ja tarkastettu, että tuloksena on täsmälleen alkuperäinen tiedosto.
+    - en ole ihan varma mitä on tarkoitus laittaa tähän kohtaan

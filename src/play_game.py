@@ -56,15 +56,15 @@ if __name__ == "__main__":
     import sys
 
     # Default algorithm
-    algorithm = "expectiminimax"
-    depth = 3
+    PLAY_ALGORTYHM = "expectiminimax"
+    PLAY_DEPTH = 3
 
     # Command line arguments
     if len(sys.argv) > 1:
-        algorithm = sys.argv[1]
+        PLAY_ALGORTYHM = sys.argv[1]
     if len(sys.argv) > 2:
-        depth = int(sys.argv[2])
+        PLAY_DEPTH = int(sys.argv[2])
 
-    print(f"Playing with {algorithm} algorithm" +
-          (f" (depth={depth})" if algorithm == "expectiminimax" else ""))
-    play_game_ai(algorithm, depth)
+    print(f"Playing with {PLAY_ALGORTYHM} algorithm" +
+          (f" (depth={PLAY_DEPTH})" if PLAY_ALGORTYHM == "expectiminimax" else ""))
+    play_game_ai(PLAY_ALGORTYHM, PLAY_DEPTH)

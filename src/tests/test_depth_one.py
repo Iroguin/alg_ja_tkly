@@ -1,7 +1,8 @@
 """Tests for depth_one_move algorithm"""
 
+
+from unittest.mock import Mock, patch
 import pytest
-from unittest.mock import Mock, patch, MagicMock
 from algorithms.depth_one_move import depth_one_move
 
 
@@ -47,7 +48,7 @@ class TestDepthOneMove:
         with patch('algorithms.depth_one_move.evaluate_board', return_value=10):
             depth_one_move(mock_game)
 
-        # Verify set_board called with original state after each move
+        # Verify set_board called with original state
         expected_calls = [((original_board,),)] * 4
         assert mock_game.set_board.call_args_list == expected_calls
 

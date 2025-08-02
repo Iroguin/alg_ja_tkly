@@ -12,7 +12,7 @@ def depth_one_move(game):
     """
     Algorithm that tries each move and picks the best one.
     Doesnt use expectiminimax.
-    Args: game: Game2048 instance
+    Args: game: Game2048
     Returns: str: Best direction to move
     """
     directions = [UP, DOWN, LEFT, RIGHT]
