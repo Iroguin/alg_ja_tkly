@@ -8,17 +8,23 @@ evaluation.py - Pelitilan arviointi ja heuristiikkafunktiot
 
 ## Testaus ja mittaus:
 Automaattinen pelitestaus eri parametreilla
-Saavutettujen pisteiden ja 2048-laatan saavuttamisprotentin mittaus
-Suorituskykytestit eri hakusyvyyksillä
+
 
 ## Suorituskyky- ja O-analyysivertailu
+Expectimax-algoritmi:
+Aikavaativuus: O(b^d)
+b = haarautumiskerroin
+d = hakusyvyys
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
+projektista puuttuu paljon mittauksia
+Saavutettujen pisteiden ja 2048-laatan saavuttamisprotentin mittaus
+Suorituskykytestit eri hakusyvyyksillä
 
 
 ## Laajojen kielimallien (ChatGPT yms.) käyttö
 Claude on ainoa kielimalli jota olen käyttänyt.
 Käytetty:
-    - Käytin sitä projektin alussa jonkun dokumenttien laatimista varten
+    - Käytin sitä projektin alussa määrittelydokumenttin laatimista varten
     - Käytin laatiessani testejä esim miten mock toimii ja miten pystyisin testaamaan satunnasta logiikkaa
 

@@ -1,5 +1,7 @@
 # 2048 Peli - Määrittelydokumentti
 ## Perustiedot
+Luotu ja viimmeksi muokattu viikolla 1
+
 Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti (TKT)
 Dokumentaatio Kieli: Suomi
 Ohjelmointikieli: Python
@@ -24,12 +26,9 @@ Pelitilan evaluointi ja parhaan siirron valinta
 
 ## Algoritmit ja tietorakenteet
 ### Pääalgoritmit:
--Expectimax-algoritmi tai Minimax-algorytmi
+-Expectimax-algoritmi
 Käsittelee pelaajan siirtoja ja satunnaisia tapahtumia
 Expectimax Soveltuu paremmin kuin Minimax satunnaisuutta sisältäviin peleihin
--Alpha-beta pruning
-Optimoi Algorytmin suorituskykyä
-Karsii tarpeettomia haaroja hakupuusta
 -Heuristiikkafunktiot
 Monotonisuus-heuristiikka (suurimmat numerot kulmissa/reunoilla)
 Sujuvuus-heuristiikka (pienet erot vierekkäisten laattojen välillä)

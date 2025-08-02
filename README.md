@@ -18,3 +18,6 @@ Shell ympäristöön voi päästä komennolla:
 ```
 poetry shell
 ```
+
+## Lisää ohjeita loytyy:
+Dokumentaatio/Käyttöohje.md

@@ -17,13 +17,13 @@ Testien tekemisessä kestää ikuistesti.
 en ole ihan varma mitä pitäisi laittaa Miten testit voidaan toistaa? kohtaan testi dokumentissa
 
 5. Seuraavan viikon tavoitteet (ja muidenkin tulevien viikojen):
+- [ ] evaluation funktiota pitää parantaa huomattavasti
 - [ ] Muista sallia issuet
 - [ ] Ensimmäinen vertaisarviointi tehty.
 - [ ] Oman harjoitustyön saaman palautteen hyödyntäminen
 - [ ] Toteutus- ja testausdokumentti ajan tasalla.
 - [ ] Ohjelman ydintoiminta valmis. Mahdolliset omat tietorakenteet melkein valmiina.
 - [x] Ohjelman testit kattavia.
-- [ ] Hiottu evaluaatio funktio
 - [ ] Dokumentaation parantaminen diagrammeilla
 - [ ] Readme täytetty hyödyllisellä infolla
 - [ ] Mahdollisten yksikkötestejä täydentävien testien kehitys aloitettu.
