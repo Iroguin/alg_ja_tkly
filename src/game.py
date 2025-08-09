@@ -45,25 +45,26 @@ class Game2048:
 
     def has_moves_available(self):
         """Check if any moves are still possible"""
-        if any(0 in row for row in self.board):
-            return True
-
-        # Check for adjacent equal numbers (horizontal)
         for i in range(4):
-            for j in range(3):
-                if self.board[i][j] == self.board[i][j + 1]:
-                    return True
-
-        # Check for adjacent equal numbers (vertical)
-        for i in range(3):
             for j in range(4):
-                if self.board[i][j] == self.board[i + 1][j]:
+                # Check for empty cell
+                if self.board[i][j] == 0:
+                    return True
+                # Check right neighbor (if not at right edge)
+                if j < 3 and self.board[i][j] == self.board[i][j + 1]:
+                    return True
+                # Check bottom neighbor (if not at bottom edge)
+                if i < 3 and self.board[i][j] == self.board[i + 1][j]:
                     return True
         return False
 
     def check_win_condition(self):
         """Check if tile 2048 has been reached"""
         return any(2048 in row for row in self.board)
+
+    def get_board_sum(self):
+        """Get the sum of all tiles on the board"""
+        return sum(sum(row) for row in self.board)
 
     def make_move(self, direction):
         """

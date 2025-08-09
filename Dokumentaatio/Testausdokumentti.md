@@ -1,5 +1,7 @@
 # Testausdokumentti
 
+![alt text](<Coverage_report-5.png>)
+
 Raportin voi saada komennolla
 ```
 poetry run invoke coverage
@@ -21,4 +23,11 @@ Minkälaisilla syötteillä testaus tehtiin?
     - testaus tapahtuu suurimmaksi osaksi eri lauta tilanteilla esim tyhjä lauta
 
 Miten testit voidaan toistaa?
-    - en ole ihan varma mitä on tarkoitus laittaa tähän kohtaan
+    - Testit voi toistaa komenolla
+    ```
+    Poetry run invoke test
+    ```
+    - yksittäisiä testi tiedostoja voi suoritta komenolla
+    ```
+    Poetry run pytest src/tests/<hakemiston nimi>
+    ```

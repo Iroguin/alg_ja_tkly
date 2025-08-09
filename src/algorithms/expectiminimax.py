@@ -56,7 +56,10 @@ def expectiminimax(game, depth, is_player_turn=True):
 
             game.set_board(original_board)
 
-        return alpha if alpha != float('-inf') else evaluate_board(game.board)
+        if alpha == float('-inf'):
+            return evaluate_board(game.board)
+        return alpha
+
 
     else:
         # Expectation off random tile

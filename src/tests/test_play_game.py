@@ -54,20 +54,24 @@ class TestPlayGameAI:
                 play_game_ai(algorithm="invalid_algo")
 
     def test_win_condition(self):
-        """Test game ends when win condition is met"""
+        """Test game continues after win condition is met"""
         with patch('play_game.Game2048') as mockgame2048:
             mock_game = Mock()
-            mock_game.is_game_over.return_value = False
-            mock_game.is_won.side_effect = [False, True]  # Win on second move
+            mock_game.is_game_over.side_effect = [
+                False, False, False, True]  # Game continues after win
+            mock_game.is_won.side_effect = [
+                False, True, True]  # Win on second move, stays won
             mock_game.make_move.return_value = True
             mockgame2048.return_value = mock_game
 
-            with patch('play_game.get_best_move_expectiminimax', return_value='up'):
+            with patch('play_game.get_best_move_expectiminimax', return_value='up') as mock_algo:
                 with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
                     play_game_ai()
 
+                # Game should continue for 3 moves even after winning
+                assert mock_algo.call_count == 3
                 output = mock_stdout.getvalue()
-                assert "Won in 2 moves!" in output
+                assert "Won in 2 moves!" in output  # Win message appears
 
     def test_game_over_condition(self):
         """Test game ends when no moves available"""
@@ -203,7 +207,9 @@ class TestEdgeCases:
         """Test when game is won from the start"""
         with patch('play_game.Game2048') as mockgame2048:
             mock_game = Mock()
-            mock_game.is_game_over.return_value = False
+            # Game should end after detecting the immediate win
+            mock_game.is_game_over.side_effect = [
+                False, True]  # False first, then True
             mock_game.is_won.return_value = True
             mock_game.make_move.return_value = True
             mockgame2048.return_value = mock_game

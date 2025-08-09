@@ -1,8 +1,9 @@
 # Käyttöohje:
+## Ohjelman asentaminen
 
 Kloonaa repositorio
 
-Asenna poetry komennolla:
+Repositiossa asenna poetry komennolla:
 ```
 pip install poetry
 ```
@@ -14,22 +15,24 @@ Shell ympäristöön voi päästä komennolla:
 ```
 poetry shell
 ```
+poetryn uudemmissa versioissa voit käyttää komentoa:
+```
+eval $(poetry env activate)
+```
+Jos olet shell ympäristössä kaikkista komennoista voi lyhentää pois "poetry run" osan
 
 ## Ohjelman käyttäminen
 
-Jos olet shell ympäristössä ohjelman voi aloittaa komennolla:
-```
-invoke play
-```
-Tämä pelaa pelin expectimax algorytmillä ja syvyydellä 3. 
-Muuten shell ympäristön ulkopuolella pelin voi aloittaa komennolla:
+ohjelman voi aloittaa komennolla:
 ```
 poetry run invoke play
 ```
+Tämä pelaa pelin expectimax algorytmillä ja syvyydellä 3. 
+
 
 Tarkempia ohjeita voi antaa komenolla:
 ```
-python play_game.py expectiminimax 4
+python src/play_game.py expectiminimax 4
 ```
 esimerkkinä expectiminimax on algorytmin nimi ja numero 4 on syvyys. depth_one on toinen käytettävä algorytmi.
 
@@ -37,18 +40,13 @@ esimerkkinä expectiminimax on algorytmin nimi ja numero 4 on syvyys. depth_one 
 
 Muita komentoja joita voi käyttää ovat esimerkiksi: 
 ```
-Invoke Test
-```
-muuten
-```
 Poetry run invoke test
 ```
 Coverage raportin voi saada shell ympäristössä komennolla:
-
-```
-Invoke coverage
-```
-muuten
 ```
 Poetry run invoke coverage
+```
+Koodin linttaus taoimii komennolla:
+```
+Poetry run invoke lint
 ```

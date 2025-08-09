@@ -19,6 +19,7 @@ def play_game_ai(algorithm="expectiminimax", depth=3):
     """
     game = Game2048()
     moves = 0
+    win_move = None
 
     while not game.is_game_over():
         game.print_board()
@@ -37,18 +38,18 @@ def play_game_ai(algorithm="expectiminimax", depth=3):
         # Play move
         if game.make_move(move):
             moves += 1
+            if game.is_won() and win_move is None:
+                win_move = moves
         else:
             print("No valid moves available!")
             break
 
-        if game.is_won():
-            game.print_board()
-            print(f"Won in {moves} moves!")
-            return
-
     game.print_board()
     print(f"Played with {algorithm} algorithm" +
           (f" (depth={depth})" if algorithm == "expectiminimax" else ""))
+
+    if win_move is not None:
+        print(f"Won in {win_move} moves!")
     print(f"Game over after {moves} moves!")
 
 
