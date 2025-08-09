@@ -28,6 +28,9 @@ Vertaisarvioinnin deadline on viikon 7 torstaina.
 - [ ] Dokumentaation viimestelyä.
 - [x] Muista käyttöohje
 - [ ] measure.py tiedosto käytettävissä
+- [ ] dokumentaatio measure.py tiedostoa varten
+- [ ] Dokumentaation parantaminen diagrammeilla
+- [ ] Mahdollisten yksikkötestejä täydentävien testien kehitys aloitettu.
 
 6. Tämän viikon tavoitteet
 - [x] evaluation funktiota pitää parantaa huomattavasti

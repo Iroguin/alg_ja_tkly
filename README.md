@@ -33,4 +33,5 @@ poetry shell
 ```
 
 ## Lisää ohjeita loytyy:
-Dokumentaatio/Käyttöohje.md
+
+[Dokumentaatio/Käyttöohje.md](./Dokumentaatio/köyttöohje.md)
