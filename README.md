@@ -2,7 +2,7 @@
 Aineopintojen harjoitustyö: Algoritmit ja tekoäly
 
 # Dokumentaatio
-[Käyttöohje](./Dokumentaatio/köyttöohje.md)
+[Käyttöohje](./Dokumentaatio/käyttöohje.md)
 [Määrittely Dokumentti](./Dokumentaatio/Määrittelydokumentti.md)
 [Testaus Dokumentti](./Dokumentaatio/Testausdokumentti.md)
 [Toteustus Dokumentti](./Dokumentaatio/Toteutusdokumentti.md)
@@ -34,4 +34,4 @@ poetry shell
 
 ## Lisää ohjeita loytyy:
 
-[Dokumentaatio/Käyttöohje.md](./Dokumentaatio/köyttöohje.md)
+[Dokumentaatio/Käyttöohje.md](./Dokumentaatio/Käyttöohje.md)
