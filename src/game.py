@@ -44,7 +44,7 @@ class Game2048:
             self.board[i][j] = 2 if random.random() < 0.9 else 4
 
     def has_moves_available(self):
-        """Check if any moves are still possible - OPTIMIZED"""
+        """Check if any moves are still possible"""
         # Check for empty cells first
         for row in self.board:
             if 0 in row:

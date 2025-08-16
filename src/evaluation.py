@@ -115,7 +115,7 @@ def get_best_weighted_score(board, board_sum):
     return max_weighted / (board_sum * 15) if board_sum > 0 else 0
 
 def calculate_monotonicity(board, board_sum):
-    """Optimized monotonicity - maintains quality of original algorithm"""
+    """Monotonicity calculator"""
     if board_sum == 0:
         return 0
     total_mono = 0
