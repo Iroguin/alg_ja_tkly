@@ -44,17 +44,20 @@ class Game2048:
             self.board[i][j] = 2 if random.random() < 0.9 else 4
 
     def has_moves_available(self):
-        """Check if any moves are still possible"""
+        """Check if any moves are still possible - OPTIMIZED"""
+        # Check for empty cells first
+        for row in self.board:
+            if 0 in row:
+                return True
+
+        # Check for adjacent equal tiles
         for i in range(4):
-            for j in range(4):
-                # Check for empty cell
-                if self.board[i][j] == 0:
+            for j in range(3):
+                # # Check right neighbor
+                if self.board[i][j] == self.board[i][j + 1]:
                     return True
-                # Check right neighbor (if not at right edge)
-                if j < 3 and self.board[i][j] == self.board[i][j + 1]:
-                    return True
-                # Check bottom neighbor (if not at bottom edge)
-                if i < 3 and self.board[i][j] == self.board[i + 1][j]:
+                # Check bottom neighbor
+                if self.board[j][i] == self.board[j + 1][i]:
                     return True
         return False
 
@@ -68,37 +71,53 @@ class Game2048:
 
     def make_move(self, direction):
         """
-        Move in the direction given.
+        Move in the direction given
         Returns True if the move was valid (board changed)
         """
-        # Save board state to check if move was valid
-        original_board = [row[:] for row in self.board]
+        moved = False
 
         if direction in ('a', LEFT):  # Left
-            # Combine
-            self.board = [self.combine_row(row) for row in self.board]
+            for i in range(4):
+                # Combine
+                new_row = self.combine_row(self.board[i])
+                if new_row != self.board[i]:
+                    moved = True
+                    self.board[i] = new_row
+
         elif direction in ('d', RIGHT):  # Right
-            # Reverse, combine, reverse
-            self.board = [self.combine_row(row[::-1])[::-1]
-                          for row in self.board]
+            for i in range(4):
+                # Reverse, combine, reverse
+                new_row = self.combine_row(self.board[i][::-1])[::-1]
+                if new_row != self.board[i]:
+                    moved = True
+                    self.board[i] = new_row
+
         elif direction in ('w', UP):  # Up
-            # Transpose, combine, transpose back
-            self.board = [[self.combine_row([self.board[i][j] for i in range(4)])[
-                i] for j in range(4)] for i in range(4)]
+            for j in range(4):
+                # Transpose, combine, transpose back
+                col = [self.board[i][j] for i in range(4)]
+                new_col = self.combine_row(col)
+                if new_col != col:
+                    moved = True
+                    for i in range(4):
+                        self.board[i][j] = new_col[i]
+
         elif direction in ('s', DOWN):  # Down
-            # Transpose, reverse, combine, reverse, transpose back
-            self.board = [[self.combine_row([self.board[i][j] for i in range(
-                4)][::-1])[::-1][i] for j in range(4)] for i in range(4)]
+            for j in range(4):
+                # Transpose, reverse, combine, reverse, transpose back
+                col = [self.board[i][j] for i in range(4)]
+                new_col = self.combine_row(col[::-1])[::-1]
+                if new_col != col:
+                    moved = True
+                    for i in range(4):
+                        self.board[i][j] = new_col[i]
         else:
             return False  # Invalid direction
 
-        # Check if the board changed
-        move_was_valid = self.board != original_board
-
         # Add new tile only if the board changed
-        if move_was_valid:
+        if moved:
             self.add_random_tile()
-        return move_was_valid
+        return moved
 
     def board_to_string(self):
         """Convert board to string for testing"""

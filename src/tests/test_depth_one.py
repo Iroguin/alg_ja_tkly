@@ -1,8 +1,6 @@
 """Tests for depth_one_move algorithm"""
 
-
 from unittest.mock import Mock, patch
-import pytest
 from algorithms.depth_one_move import depth_one_move
 
 

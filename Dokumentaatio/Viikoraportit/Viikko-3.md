@@ -22,6 +22,7 @@ en ole ihan varma mikä tekee testistä edustavan mutta en ole myöskään viell
 - [ ] Mahdollisten yksikkötestejä täydentävien testien kehitys aloitettu.
 - [ ] Muista, että kaikkia mahdollisia eri testityyppejä ei tarvita. Mieti mitkä ovat oleellisia oman aiheesi oikeellisuuden testaamiseen.
 - [ ] tee testaus dokumentti
+- [ ] expectiminimax testit eviät kattaa kaikkea
 - [ ] Kirjoita näistä testausdokumenttiin.
 
 

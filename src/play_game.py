@@ -33,7 +33,7 @@ def play_game_ai(algorithm="expectiminimax", depth=3):
         else:
             raise ValueError(f"Unknown algorithm: {algorithm}")
 
-        print(f"AI chooses: {move}")
+        print(f"Algorythm chooses: {move}")
 
         # Play move
         if game.make_move(move):

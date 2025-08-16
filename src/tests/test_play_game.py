@@ -1,7 +1,7 @@
 """Tests for play_game.py"""
 
 from unittest.mock import Mock, patch
-import sys
+import sys  # pylint: disable=unused-import
 from io import StringIO
 import pytest
 from play_game import play_game_ai

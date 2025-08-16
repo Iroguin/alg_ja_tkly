@@ -65,7 +65,8 @@ class TestGetBestMoveExpectiminimax:
             mock_temp_game.board = [[0] * 4 for i in range(4)]
             mockgame.return_value = mock_temp_game
 
-            with patch('algorithms.expectiminimax.expectiminimax', return_value=10) as mock_expectiminimax:
+            with patch('algorithms.expectiminimax.expectiminimax',
+                       return_value=10) as mock_expectiminimax:
                 get_best_move_expectiminimax(mock_game)  # No depth specified
 
                 # Should be called with depth-1 = 2 (default depth is 3)

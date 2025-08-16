@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-![alt text](<Coverage_report-5.png>)
+![alt text](<coverage_reports/Coverage_report-6.png>)
 
 Raportin voi saada komennolla
 ```
@@ -12,9 +12,9 @@ Testatut tiedostot:
     - game.py
     - evaluation.py
     - play_game.py
-        - huono coverage score johtuu siitä että sys argumentteja ei testata
     - expecitminimax.py
     - depth_one_move.py
+    - measure.py
 
 Tiedostot viellä testaamatta:
     - none

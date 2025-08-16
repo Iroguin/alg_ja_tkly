@@ -60,7 +60,6 @@ def expectiminimax(game, depth, is_player_turn=True):
             return evaluate_board(game.board)
         return alpha
 
-
     else:
         # Expectation off random tile
         empty_cells = [(i, j) for i in range(4)

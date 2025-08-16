@@ -1,6 +1,6 @@
 """Tests for core game logic"""
 
-import random
+import random  # pylint: disable=unused-import
 from unittest.mock import patch
 import pytest
 from game import Game2048, UP, DOWN, LEFT, RIGHT

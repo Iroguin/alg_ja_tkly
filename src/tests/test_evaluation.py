@@ -1,6 +1,5 @@
 """Tests for evaluation.py"""
 
-import pytest
 from evaluation import evaluate_board
 
 
@@ -82,28 +81,15 @@ class TestEvaluateBoard:
             assert 0 <= score <= 1
 
     def test_weighted_position(self):
-        """Test weighted sum heuristic"""
-        # Board with high value in top-left (highest weight)
-        board1 = [
-            [1024, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0]
-        ]
-
-        # Board with same value in bottom-right (lowest weight)
-        board2 = [
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 1024]
-        ]
-
+        """Test weighted sum heuristic - all corners should be equal now"""
+        board1 = [[1024, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+        board2 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 1024]]
+        
         score1 = evaluate_board(board1)
         score2 = evaluate_board(board2)
-
-        # First board should score higher due to weighted position
-        assert score1 > score2
+        
+        # With new orientation-agnostic approach, both corners are equally good
+        assert score1 == score2
 
 
 class TestEdgeCases:

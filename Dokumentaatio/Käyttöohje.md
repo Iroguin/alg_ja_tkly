@@ -10,7 +10,10 @@ pip install poetry
 Asenna seuraavaksi projektin riippuvuudet komennolla:
 ```
 poetry install
+
 ```
+## Shell ympäristö
+
 Shell ympäristöön voi päästä komennolla:
 ```
 poetry shell
@@ -32,13 +35,14 @@ Tämä pelaa pelin expectimax algorytmillä ja syvyydellä 3.
 
 Tarkempia ohjeita voi antaa komenolla:
 ```
-python src/play_game.py expectiminimax 4
+poetry run invoke play --algorithm=<algorytmin nimi> --depth=<syvyys>
 ```
 esimerkkinä expectiminimax on algorytmin nimi ja numero 4 on syvyys. depth_one on toinen käytettävä algorytmi.
 
 ## Muita komentoja / testaus
 
 Muita komentoja joita voi käyttää ovat esimerkiksi: 
+Koodin testien suorittaminen:
 ```
 Poetry run invoke test
 ```
@@ -49,4 +53,8 @@ Poetry run invoke coverage
 Koodin linttaus taoimii komennolla:
 ```
 Poetry run invoke lint
+```
+Suuren pelimäärän analysointi:
+```
+invoke measure --games=<pelimäärä> --algorithm=<slgorytmin nimi> --depth=<syvyys>
 ```

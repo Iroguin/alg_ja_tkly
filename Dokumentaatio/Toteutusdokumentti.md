@@ -44,10 +44,8 @@ Keskimääräinen tapaus: O((4 × 2k)^(d/2)) missä k on tyhjien ruutujen keskim
 Käytännön vaativuus: Noin O(4^d × n^2) koska laudan operaatiot ovat O(n^2)
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
-projektista puuttuu paljon mittauksia
-Saavutettujen pisteiden ja 2048-laatan saavuttamisprotentin mittaus
 Suorituskykytestit eri hakusyvyyksillä
-
+Luulen että expectiminimax algorytmini on melko hidas
 
 ## Laajojen kielimallien (ChatGPT yms.) käyttö
 Claude on ainoa kielimalli jota olen käyttänyt.
@@ -55,4 +53,4 @@ Käytetty:
     - Käytin sitä projektin alussa määrittelydokumenttin laatimista varten
     - Käytin laatiessani testejä esim miten mock toimii ja miten pystyisin testaamaan satunnasta logiikkaa
     - Bugejen löytämisessä olen nyt käyttänyt paljon
-
+    - käytin nyt viikolla 6 paljon optimisointien löytämiseen.
