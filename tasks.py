@@ -46,4 +46,4 @@ def measure(c, games=100, algorithm="expectiminimax", depth=3):
 
     Example: invoke measure --games=500 --algorithm=expectiminimax --depth=4
     """
-    c.run(f"python src/measure.py {games} {algorithm} {depth}")
+    c.run(f"python src/measure.py {games} {algorithm} {depth}", pty=True)

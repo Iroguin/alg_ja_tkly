@@ -17,15 +17,6 @@ def evaluate_board(board):
     max_val = 0
     board_sum = 0
     merge_potential = 0
-    weighted_sum = 0
-
-    # Weight matrix for position scoring
-    weight_matrix = [
-        [15, 14, 13, 12],
-        [11, 10, 9, 8],
-        [7, 6, 5, 4],
-        [3, 2, 1, 0]
-    ]
 
     # Single pass for basics
     for i in range(4):
@@ -36,7 +27,7 @@ def evaluate_board(board):
             else:
                 board_sum += cell
                 max_val = max(max_val, cell)
-                
+
                 # Check adjacent cells for merge possibility
                 if j < 3 and board[i][j + 1] == cell:
                     merge_potential += cell
@@ -90,29 +81,33 @@ def has_moves_available(board):
                 return True
     return False
 
+
 def get_best_weighted_score(board, board_sum):
     """Calculate weighted score for best orientation so thats its less arbitrary"""
     orientations = [
-    [[15, 14, 13, 12], [11, 10, 9, 8], [7, 6, 5, 4], [3, 2, 1, 0]],  # top-left
-    [[12, 13, 14, 15], [8, 9, 10, 11], [4, 5, 6, 7], [0, 1, 2, 3]],  # top-right  
-    [[3, 2, 1, 0], [7, 6, 5, 4], [11, 10, 9, 8], [15, 14, 13, 12]],  # bottom-left
-    [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11], [12, 13, 14, 15]]   # bottom-right
+        [[15, 14, 13, 12], [11, 10, 9, 8], [7, 6, 5, 4], [3, 2, 1, 0]],  # top-left
+        [[12, 13, 14, 15], [8, 9, 10, 11], [4, 5, 6, 7], [0, 1, 2, 3]],  # top-right
+        [[3, 2, 1, 0], [7, 6, 5, 4], [11, 10, 9, 8],
+            [15, 14, 13, 12]],  # bottom-left
+        [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11],
+            [12, 13, 14, 15]]   # bottom-right
     ]
     max_weighted = 0
     for weights in orientations:
         weighted_sum = (
-            board[0][0] * weights[0][0] + board[0][1] * weights[0][1] + 
+            board[0][0] * weights[0][0] + board[0][1] * weights[0][1] +
             board[0][2] * weights[0][2] + board[0][3] * weights[0][3] +
-            board[1][0] * weights[1][0] + board[1][1] * weights[1][1] + 
+            board[1][0] * weights[1][0] + board[1][1] * weights[1][1] +
             board[1][2] * weights[1][2] + board[1][3] * weights[1][3] +
-            board[2][0] * weights[2][0] + board[2][1] * weights[2][1] + 
+            board[2][0] * weights[2][0] + board[2][1] * weights[2][1] +
             board[2][2] * weights[2][2] + board[2][3] * weights[2][3] +
-            board[3][0] * weights[3][0] + board[3][1] * weights[3][1] + 
+            board[3][0] * weights[3][0] + board[3][1] * weights[3][1] +
             board[3][2] * weights[3][2] + board[3][3] * weights[3][3]
         )
         if weighted_sum > max_weighted:
             max_weighted = weighted_sum
     return max_weighted / (board_sum * 15) if board_sum > 0 else 0
+
 
 def calculate_monotonicity(board, board_sum):
     """Monotonicity calculator"""

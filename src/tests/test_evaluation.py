@@ -84,10 +84,10 @@ class TestEvaluateBoard:
         """Test weighted sum heuristic - all corners should be equal now"""
         board1 = [[1024, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         board2 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 1024]]
-        
+
         score1 = evaluate_board(board1)
         score2 = evaluate_board(board2)
-        
+
         # With new orientation-agnostic approach, both corners are equally good
         assert score1 == score2
 

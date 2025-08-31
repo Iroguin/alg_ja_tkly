@@ -99,28 +99,23 @@ class TestExpectiminimaxPlayerTurn:
         """Test evaluates all valid moves on player turn"""
         mock_game = Mock()
         mock_game.is_game_over.return_value = False
-        mock_game.get_board_copy.return_value = [
-            [0, 2, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-
-        # Mock make_move to return True for all directions
-        mock_game.make_move.return_value = True
         mock_game.board = [[0, 2, 0, 0], [
             0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
-        with patch('algorithms.expectiminimax.Game2048') as mockgame2048:
-            mock_temp_game = Mock()
-            mock_temp_game.board = [[0, 2, 0, 0], [
-                0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-            mock_temp_game.combine_row = Mock(
-                side_effect=lambda row: [sum(row[:2]), sum(row[2:]), 0, 0])
-            mockgame2048.return_value = mock_temp_game
+        with patch('algorithms.expectiminimax.apply_move') as mock_apply:
+            mock_apply.side_effect = [
+                [[2, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],  # UP
+                [[0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],  # DOWN
+                [[2, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],  # LEFT
+                [[0, 0, 2, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],  # RIGHT
+            ]
 
             with patch('algorithms.expectiminimax.evaluate_board', return_value=50):
                 result = expectiminimax(
                     mock_game, depth=1, is_player_turn=True)
 
         assert result == 50
-        assert mock_game.make_move.call_count == 4  # All 4 directions tested
+        assert mock_apply.call_count == 4  # All 4 directions tested
 
     def test_player_turn_no_valid_moves(self):
         """Test player turn when no moves are valid"""
@@ -146,17 +141,19 @@ class TestExpectiminimaxRandomTurn:
         mock_game.is_game_over.return_value = False
         mock_game.board = [[2, 0, 0, 0], [
             0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-        mock_game.get_board_copy.return_value = [
-            [2, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-        mock_game.set_board = Mock()
 
         with patch('algorithms.expectiminimax.evaluate_board', return_value=100):
-            result = expectiminimax(mock_game, depth=1, is_player_turn=False)
+            with patch('algorithms.expectiminimax.random.sample') as mock_sample:
+                # Mock sampling to return 7 cells (set to 7 in code to reduce
+                # time)
+                mock_sample.return_value = [
+                    (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2), (1, 3)]
+                result = expectiminimax(
+                    mock_game, depth=1, is_player_turn=False)
 
-        # Should calculate weighted average across all empty cells
+        # Should calculate weighted average across sampled cells
         assert pytest.approx(result) == 100
-        # 15 empty cells, each placement tested with 2 and 4 = 30
-        assert mock_game.set_board.call_count == 30
+        assert mock_sample.called
 
     def test_random_turn_no_empty_cells(self):
         """Test random turn when board is full"""
@@ -177,29 +174,21 @@ class TestExpectiminimaxMoveSimulation:
     def test_left_move_simulation(self):
         """Test LEFT move board transformation"""
         mock_game = Mock()
-        mock_game.get_board_copy.return_value = [
-            [2, 2, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         mock_game.is_game_over.return_value = False
-        mock_game.make_move.return_value = True
         mock_game.board = [[2, 2, 0, 0], [
             0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-        mock_game.set_board = Mock()
 
-        with patch('algorithms.expectiminimax.Game2048') as mockgame2048:
-            mock_temp_game = Mock()
-            mock_temp_game.board = [[2, 2, 0, 0], [
+        with patch('algorithms.expectiminimax._cached_game') as mock_cached:
+            mock_cached.combine_row.side_effect = lambda row: [
+                4, 0, 0, 0] if row == [2, 2, 0, 0] else row
+            mock_cached.board = [[2, 2, 0, 0], [
                 0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-            mock_temp_game.combine_row = Mock(
-                side_effect=lambda row: [
-                    4, 0, 0, 0] if row == [
-                    2, 2, 0, 0] else row)
-            mockgame2048.return_value = mock_temp_game
 
             with patch('algorithms.expectiminimax.evaluate_board', return_value=100):
                 expectiminimax(mock_game, depth=1, is_player_turn=True)
 
-            # Verify combine_row was called for LEFT move
-            assert mock_temp_game.combine_row.called
+            # Verify combine_row was called for LEFT
+            assert mock_cached.combine_row.called
 
     def test_up_down_move_transformations(self):
         """Test UP and DOWN move board transformations"""
@@ -207,24 +196,19 @@ class TestExpectiminimaxMoveSimulation:
         board = [[2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         mock_game.get_board_copy.return_value = board
         mock_game.is_game_over.return_value = False
-        mock_game.make_move.return_value = True
         mock_game.board = board
         mock_game.set_board = Mock()
 
-        with patch('algorithms.expectiminimax.Game2048') as mockgame2048:
-            mock_temp_game = Mock()
-            mock_temp_game.board = board
-            mock_temp_game.combine_row = Mock(
-                side_effect=lambda col: [
-                    4, 0, 0, 0] if col == [
-                    2, 2, 0, 0] else col)
-            mockgame2048.return_value = mock_temp_game
+        with patch('algorithms.expectiminimax._cached_game') as mock_cached_game:
+            mock_cached_game.board = board
+            mock_cached_game.combine_row = Mock(
+                side_effect=lambda col: [4, 0, 0, 0] if col == [2, 2, 0, 0] else col)
 
             with patch('algorithms.expectiminimax.evaluate_board', return_value=100):
                 expectiminimax(mock_game, depth=1, is_player_turn=True)
 
             # Should have called combine_row for column operations
-            assert mock_temp_game.combine_row.call_count > 0
+            assert mock_cached_game.combine_row.call_count > 0
 
 
 class TestGetBestMoveAllDirections:

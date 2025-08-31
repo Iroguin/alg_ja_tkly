@@ -10,7 +10,6 @@ pip install poetry
 Asenna seuraavaksi projektin riippuvuudet komennolla:
 ```
 poetry install
-
 ```
 ## Shell ympäristö
 

@@ -20,9 +20,11 @@ Peli on noin 20% nopeampi tarkistin käyttäen yläpuolella olevaa.
 
 
 5. Seuraavan viikon tavoitteet:
-- [optimoi expectiminimax algorytmiä]
 - [ ] vertais arviointi 2
 Vertaisarvioinnin deadline on viikon 7 torstaina.
+- [ ] Dokumentaation parantaminen diagrammeilla
+- [ ] Mahdollisten yksikkötestejä täydentävien testit (ehkä test_performance.py).
+- [optimoi expectiminimax algorytmiä]
 
 6. Tämän viikon tavoitteet
 - [x] Ohjelman viimeistelyä.

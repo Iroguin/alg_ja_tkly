@@ -2,7 +2,6 @@
 
 import random  # pylint: disable=unused-import
 from unittest.mock import patch
-import pytest
 from game import Game2048, UP, DOWN, LEFT, RIGHT
 
 
@@ -360,7 +359,6 @@ class TestBoardUtilities:
         game.set_board(original_board)
         board_copy = game.get_board_copy()
 
-        # Modify the copy
         board_copy[0][0] = 999
 
         # Original should be unchanged
@@ -386,7 +384,7 @@ class TestGameStateProperties:
     def test_is_game_over(self):
         game = Game2048()
 
-        # Game not over - has empty cells
+        # Game not over has empty cells
         game.set_board([
             [2, 4, 8, 0],
             [32, 64, 128, 256],
@@ -435,7 +433,7 @@ class TestFullGameScenario:
         ])
 
         with patch.object(game, 'add_random_tile'):
-            # Move up - should combine the 2s
+            # Move up should combine the 2s
             result = game.make_move(UP)
             assert result is True
             assert game.board[0][0] == 4
