@@ -14,6 +14,7 @@ Aineopintojen harjoitustyö: Algoritmit ja tekoäly
 [Viikko 4](./Dokumentaatio/Viikoraportit/Viikko-4.md)
 [Viikko 5](./Dokumentaatio/Viikoraportit/Viikko-5.md)
 [Viikko 6](./Dokumentaatio/Viikoraportit/Viikko-6.md)
+[Lopullinen](./Dokumentaatio/Viikoraportit/Lopullinen.md)
 
 # Projektin asentaminen:
 
