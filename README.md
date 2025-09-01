@@ -2,7 +2,7 @@
 Aineopintojen harjoitustyö: Algoritmit ja tekoäly
 
 # Dokumentaatio
-[Käyttöohje](./Dokumentaatio/käyttöohje.md)
+[Käyttöohje](./Dokumentaatio/Käyttöohje.md)
 [Määrittely Dokumentti](./Dokumentaatio/Määrittelydokumentti.md)
 [Testaus Dokumentti](./Dokumentaatio/Testausdokumentti.md)
 [Toteustus Dokumentti](./Dokumentaatio/Toteutusdokumentti.md)

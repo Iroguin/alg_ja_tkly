@@ -20,6 +20,6 @@ viimieistelty
 - [x] käytä profileriä kehittämään koodia
 - [x] vertais arviointi 2
 Vertaisarvioinnin deadline on viikon 7 torstaina.
-- [x] Dokumentaation parantaminen diagrammeilla
+- [ ] Dokumentaation parantaminen diagrammeilla
 - [ ] Mahdollisten yksikkötestejä täydentävien testit (ehkä test_performance.py).
 - [x] optimoi expectiminimax algorytmiä
