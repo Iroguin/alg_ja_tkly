@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-![alt text](<coverage_reports/Coverage_report_final.png>)
+![Report png](<coverage_reports/Coverage_report_final.png>)
 
 Raportin voi saada komennolla
 ```
